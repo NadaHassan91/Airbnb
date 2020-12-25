@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "lib": ["dom", "es2015"],
+    "types": ["cypress","node"],
+    "typeRoots": ["node_modules/@types"],
+    "target": "es5"
+  }
+}
