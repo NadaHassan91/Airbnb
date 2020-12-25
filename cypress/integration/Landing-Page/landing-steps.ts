@@ -7,8 +7,8 @@ const locators = {
   checkOutDateField:
     'div[data-testid="structured-search-input-field-split-dates-1"]',
   guestField: 'div[data-testid="structured-search-input-field-guests-button"]',
-  checkInDate: 'div[data-testid="datepicker-day-2020-12-27"]',
-  checkOutDate: 'div[data-testid="datepicker-day-2021-01-03"]',
+  checkInDate: 'div[data-testid="datepicker-day-2021-01-03"]',
+  checkOutDate: 'div[data-testid="datepicker-day-2021-01-10"]',
   increaseAdultBtn: 'button[data-testid="stepper-adults-increase-button"]',
   increaseChildrenBtn: 'button[data-testid="stepper-children-increase-button"]',
   searchBtn: 'button._1mzhry13',
@@ -27,7 +27,9 @@ const locators = {
     '#ExploreLayoutController div._10v3f8y9 > aside > div > div:nth-child(2) > div > div > div:nth-child(1) > div:nth-child(3) > div > div:nth-child(4) > div:nth-child(1) > div',
   detailsOnMap: 'div._v3gzda1 div._1x0fg6n div._1isz8pdq',
   propertyName: '._tmwq9g  ._r6zroz ._1jzvdu8 ._bzh5lkq',
-  // 'div:nth-child(2) > div > div > div:nth-child(2) > div > div > div > div > div:nth-child(1) > div > div > div > div > div._8s3ctt > div._tmwq9g > div._r6zroz > div > div._bzh5lkq',
+  searchArea:'git@github.com:NadaHassan91/OLX.git',
+  facilities:'[aria-label="Facilities"]'
+
 };
 
 Given(/^Navigate to airbnb site$/, function () {
@@ -36,7 +38,7 @@ Given(/^Navigate to airbnb site$/, function () {
 And(/^Select Rome, Italy as a location$/, function () {
   cy.scrollTo('bottom');
   cy.wait(3000);
-  cy.get('#littleSearchLabel').click({ force: true });
+  cy.get(locators.searchArea).click({ force: true });
   cy.get(locators.locationField).type('Rome,Italy');
 });
 And(/^Select the checkin date$/, function () {
@@ -60,7 +62,7 @@ Given(/^Search for property$/, function () {
 Then(/^Assert that the applied filters are correct$/, function () {
   cy.get(locators.searchResultHdr).should(
     'contain.text',
-    'stays · Dec 27 - Jan 3 · 3 guests',
+    'stays · Jan 3 - Jan 10 · 3 guests',
   );
 });
 Then(/^Assert that search results match the search criteria$/, function () {
@@ -98,7 +100,7 @@ Given(/^Select the number of bedrooms as (\d+)$/, function (numberOFBeds) {
   }
 });
 Given(/^Select Pool from the Facilities section$/, function () {
-  cy.get('[aria-label="Facilities"]').scrollIntoView();
+  cy.get(locators.facilities).scrollIntoView();
   cy.get(locators.poolCheckBox, { timeout: 3000 }).click({ force: true });
 });
 Given(/^Click Show Stays$/, function () {

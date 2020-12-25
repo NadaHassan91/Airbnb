@@ -23,9 +23,7 @@
   },
   "author": "Nada",
   "license": "",
-
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true
   }
-
 }
