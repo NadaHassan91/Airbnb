@@ -1,4 +1,4 @@
-#Automation Task
+# Automation Task
 
 Project is done using Cypress with typescript language with cucumber BDD integration
 
